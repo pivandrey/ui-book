@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UI Book
 
-## Available Scripts
+##### 1. npm i
 
-In the project directory, you can run:
+##### 2. npm run start
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Краткое описание:
+Библиотека состоит из **меню** и **отображения выбранного UI компонента**.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Меню** структурировано по папкам, папки могут сворачиваться/разворачиваться, 
+активный элемент в меню выделен цветом.
 
-### `npm test`
+**Отображение UI-компонента** состоит из названия, примера отображения (опционально), 
+описания, примера импорта (опционально), примеров использования.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Примеры использования** содержат название и описание (опционально), preview кода, 
+отображение редактора кода при нажатии на кнопку.
 
-### `npm run build`
+**Техническая реализация:** Делаем импорт компонентов из проекта, оборачиваем в класс, 
+и передаем этот код в виде текста в библиотеку react-live. 
+Библиотека позволяет отображать компоненты, вызывать песочницу, изменять пропсы и сам код.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Создание нового UI компонента:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Создать папку в `UIComponents/{тип компонента}` с названием `${ComponentName}Story`. 
+2. Создать файл `examples.js`, в котором описываются примеры использования компонента. 
+Код пишется в виде строки.
+3. При наличии главного примера добавить в файл `examples.js` функцию mainExample, 
+которая возвращает UI-компонент.
+4. При необходимости создать файл `descriptions.js`, который экспортирует объект с объектами. 
+Каждый объект рендерится в `LiveWrapper` в компонент `ExampleDescription`.
+5. Создать файл `${ComponentName}Story.js`, который по умолчанию экспортирует объект.
+6. Добавить в `UIComponents/index.js` созданный компонент.
+7. Добавить в `/config.js` созданный компонент в необходимый раздел (`Components`, `Layouts`, etc.) в виде объекта. 
+Необходимо задать `name` для отображения в меню, в `component` импортировать созданый UI компонент.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Правила редактирования `${ComponentName}Story.js`:
 
-### `npm run eject`
+Экспортируемый объект должен содержать следующие свойства:
+* `title` - Главный заголовок, обычно название компонента
+* `renderExample` - необязательный параметр, функция из п.3 (mainExample)
+* `description` - необязательный параметр, текстовое описание компонента
+* `importExample` - необязательный параметр, пример импорта компонента (в виде строки)
+* `examples` - массив примеров. Пример в виде объекта, где:
+    * `id` - рекомендуемый параметр, отражает уникальность примера
+    * `code` - обязательный параметр, служит для рендера preview
+    * `exampleDescription` - необязательный параметр, объект, который описывает пример
+    * `scope` - обязательный параметр, объект с импортированными 
+    компонентами (пример: `SomeComponent`)
+    * `type` - необязательный параметр, указывает на тип компонента (`layout`, `component`)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Правила редактирования `descriptions.js`:
+Файл экспортирует объект с объектами.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Каждый объект обладает следующими свойствами (все свойства необязательны):
+* `title` - Название примера
+* `text` - Описание примера
+* `list` - Список, добавляется в виде массива, где каждый элемент (строковый) -
+ элемент списка
+* `content` - Может быть как jsx деревом, так и функцией, возвращающей jsx дерево. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Добавление стилей:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Для `descriptions.js`:
+Базовые стили описаны в компоненте `ExampleDescription`.
 
-## Learn More
+Дополнительные стили для `content` добавлять отдельным файлом в папке `description`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Для `examples.js`:
+Создается отдельный файл стилей, в файле `examples.js` стили назначаются в виде: `className="${styles.list}"`
