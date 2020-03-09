@@ -1,0 +1,45 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.exampleTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #162D3D;
+}
+
+.list {
+
+}
+
+.listItem {
+    position: relative;
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #162D3D;
+}
+
+.listItem::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translate(0, -50%);
+}
+
+.contentWrapper {
+
+}

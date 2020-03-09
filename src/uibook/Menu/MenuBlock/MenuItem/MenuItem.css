@@ -1,0 +1,13 @@
+.root {
+    padding-left: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.root:not(:nth-last-child(1)) {
+    margin-bottom: 4px;
+}
+
+.active {
+    color: #FFA86A;
+}

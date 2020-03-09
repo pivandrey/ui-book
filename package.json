@@ -2,33 +2,52 @@
   "name": "ui-book",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
-  },
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack-dev-server --config ./webpack/webpack.dev.js --mode development --history-api-fallback --hot --inline",
+    "prod": "cross-env NODE_ENV=production webpack --mode production --config ./webpack/webpack.prod.js "
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "author": "Ivanov A.",
+  "dependencies": {
+    "check-prop-types": "^1.1.2",
+    "cross-env": "^5.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "imask": "^5.1.5",
+    "lodash": "^4.17.11",
+    "postcss-flexbugs-fixes": "^4.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-live": "^2.2.2",
+    "react-router-dom": "^5.0.0",
+    "style-loader": "^1.1.3"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.2.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-react-css-modules": "^3.4.2",
+    "css-loader": "^2.1.1",
+    "dotenv": "^8.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss": "^7.0.16",
+    "postcss-import": "^12.0.1",
+    "postcss-url": "^8.0.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-preset-env": "^6.6.0",
+    "file-loader": "^4.0.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "svg-sprite-loader": "^4.1.6",
+    "svgo": "^1.2.2",
+    "svgo-loader": "^2.2.0",
+    "webpack": "^4.33.0",
+    "webpack-merge": "^4.2.1",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1"
   }
 }

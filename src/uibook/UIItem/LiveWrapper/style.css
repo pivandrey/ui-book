@@ -1,0 +1,80 @@
+.exampleWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    flex-direction: row;
+    grid-gap: 20px;
+    grid-template-areas:
+        "description preview"
+        "editor editor";
+}
+
+.exampleWrapperWithoutDescription {
+    grid-template-areas:
+            "preview preview"
+            "editor editor";
+}
+
+.exampleWrapperLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+            "description"
+            "preview"
+            "editor";
+}
+
+.exampleWrapper:not(:nth-last-child(1)) {
+    margin-bottom: 80px;
+}
+
+.exampleDescriptionWrapper {
+    flex: 1;
+    grid-area: description;
+}
+
+.itemBlockWrapper:not(:nth-last-of-type(1)) {
+    margin-bottom: 30px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1.33;
+    color: #162D3D;
+    margin-bottom: 30px;
+}
+
+.blockTitle {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.33;
+    color: #162D3D;
+    margin-bottom: 10px;
+}
+
+.errorWrapper {
+
+}
+
+.previewWrapper {
+    background: #f0f4f7;
+    padding: 30px 20px;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    grid-area: preview;
+}
+
+.buttonExtendWrapper {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+}
+
+.editorWrapper {
+    background-color: #f8fafb;
+    border: 1px solid #e5e5e5;
+    padding: 5px;
+    font-size: 14px;
+    grid-area: editor;
+}

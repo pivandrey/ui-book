@@ -1,0 +1,53 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 100px 40px;
+    border-bottom: 1px solid #cbd3dc;
+}
+
+.description {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #162D3D;
+    margin-bottom: 20px;
+}
+
+.importExampleWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.importTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.importExampleArea {
+    padding: 26px;
+    margin-bottom: 8px;
+    border: 1px solid #e5e5e5;
+    background: rgba(240, 244, 247, 0.5);
+}
+
+.importExampleCode {
+    font-size: 16px;
+    color: rgb(36, 41, 46);
+}
+
+.examplesWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 100px;
+}
+
+.examplesMainTitle {
+    font-size: 28px;
+    color: #162d3d;
+    margin-bottom: 30px;
+}
+
+.examplesList {
+    dislpay: flex;
+    flex-direction: column;
+}

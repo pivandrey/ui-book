@@ -1,0 +1,47 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    margin: 0 100px 45px;
+    align-self: flex-start;
+}
+
+.tab {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    padding: 4px 10px;
+}
+
+.tab:not(:nth-last-child(1)) {
+    margin-right: 30px;
+}
+
+.tabSelected {
+    border-bottom: 2px solid #FFA86A;
+}
+
+.tabSelected > span {
+    color: #FFA86A;
+}
+
+.tabText {
+    font-size: 1.8rem;
+    font-weight: normal;
+    line-height: 18px;
+    font-family: Open Sans;
+    color: #666666;
+}
+
+.content {
+
+}

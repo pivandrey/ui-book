@@ -1,0 +1,24 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "wrap",
+          "ignoreFilenames": ["node_modules"]
+        }]
+      ]
+    }
+  },
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-class-properties",
+    ["react-css-modules", {
+      "webpackHotModuleReloading": true,
+      "generateScopedName": "[name]___[local]--[hash:base64:5]"
+    }]
+  ]
+}
